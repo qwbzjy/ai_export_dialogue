@@ -335,6 +335,29 @@ async function main() {
     const cspState = JSON.parse(csp.result.value);
     if (cspState.styleSheets === 0) problems.push("stylesheet blocked (CSP)");
 
+    // Popup: the toolbar icon and the header logo must actually load. A wrong
+    // relative path only shows up as a blank square in the real browser.
+    const popup = await cdp.send("Page.navigate", {
+      url: `chrome-extension://${extensionId}/popup/popup.html`,
+    });
+    if (popup.errorText) problems.push(`popup did not load: ${popup.errorText}`);
+    await sleep(700);
+    const popupCheck = await cdp.send("Runtime.evaluate", {
+      returnByValue: true,
+      expression: `(() => {
+        const img = document.querySelector("img.logo");
+        return JSON.stringify({
+          hasLogo: !!img,
+          loaded: !!img && img.complete && img.naturalWidth > 0,
+          size: img ? img.naturalWidth : 0,
+        });
+      })()`,
+    });
+    const popupState = JSON.parse(popupCheck.result.value);
+    console.log("popup:", popupState);
+    if (!popupState.hasLogo) problems.push("popup logo element missing");
+    else if (!popupState.loaded) problems.push("popup logo failed to load");
+
     await writeFile(path.join(outDir, "sample.md"), text);
     stage("sample.md written");
 
