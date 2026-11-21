@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>导出预览</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="toolbar" id="actions" hidden>
+      <h1 class="toolbar-title" id="doc-title">导出预览</h1>
+      <div class="toolbar-buttons">
+        <button type="button" id="btn-markdown" class="primary">下载 Markdown</button>
+        <button type="button" id="btn-copy">复制 Markdown</button>
+      </div>
+      <p class="toolbar-hint">下面是生成的 .md 原文；下载的文件与它逐字一致。</p>
+    </header>
+    <p class="status" id="status" hidden></p>
+    <main class="doc" id="doc">
+      <pre class="markdown" id="markdown"></pre>
+    </main>
+    <p class="footer" id="footer" hidden></p>
+    <script src="export.js"></script>
+  </body>
+</html>

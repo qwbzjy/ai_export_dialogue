@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+/* .actions sets display:grid, which outranks the UA stylesheet's [hidden]. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  width: 300px;
+  margin: 0;
+  padding: 16px;
+  font: 13px/1.5 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  color: #1f2328;
+  background: #fff;
+}
+
+.head h1 {
+  margin: 0 0 4px;
+  font-size: 15px;
+}
+
+.site {
+  margin: 0;
+  color: #57606a;
+}
+
+.site[data-state="ready"] {
+  color: #1a7f37;
+}
+
+.site[data-state="unsupported"] {
+  color: #9a6700;
+}
+
+.actions {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 10px;
+}
+
+.actions button {
+  padding: 9px 12px;
+  border: 1px solid #d8dee4;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.actions button:hover {
+  background: #f6f8fa;
+}
+
+.actions button.primary {
+  border-color: #1f883d;
+  background: #1f883d;
+  color: #fff;
+}
+
+.actions button.primary:hover {
+  background: #1a7f37;
+}
+
+.actions button:disabled {
+  color: #8c959f;
+  cursor: progress;
+}
+
+.note {
+  margin: 0 0 14px;
+  color: #57606a;
+  font-size: 12px;
+}
+
+.note[data-kind="error"] {
+  color: #a40e26;
+}
+
+.sites {
+  padding-top: 12px;
+  border-top: 1px solid #d8dee4;
+}
+
+.sites h2 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  color: #57606a;
+  font-weight: 600;
+}
+
+.sites ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sites li {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f6f8fa;
+  font-size: 12px;
+}
+
+.privacy {
+  margin: 14px 0 0;
+  color: #8c959f;
+  font-size: 11px;
+  line-height: 1.5;
+}

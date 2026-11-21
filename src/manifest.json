@@ -1,0 +1,58 @@
+{
+  "manifest_version": 3,
+  "name": "AI 对话导出",
+  "version": "0.1.0",
+  "description": "把元宝、千问、豆包、DeepSeek、Kimi 的当前对话导出为 Markdown。",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage", "unlimitedStorage", "scripting", "activeTab", "cookies"],
+  "host_permissions": [
+    "https://chat.deepseek.com/*",
+    "https://www.kimi.com/*",
+    "https://kimi.com/*",
+    "https://kimi.moonshot.cn/*",
+    "https://www.doubao.com/*",
+    "https://doubao.com/*",
+    "https://yuanbao.tencent.com/*",
+    "https://chat.qwen.ai/*",
+    "https://www.qianwen.com/*",
+    "https://qianwen.com/*",
+    "https://qianwen.aliyun.com/*",
+    "https://tongyi.aliyun.com/*",
+    "https://chat2-api.qianwen.com/*",
+    "https://*.qwen.ai/*",
+    "https://*.deepseek.com/*",
+    "https://*.doubao.com/*",
+    "https://*.tencent.com/*",
+    "https://*.aliyuncs.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "AI 对话导出"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chat.deepseek.com/*",
+        "https://www.kimi.com/*",
+        "https://kimi.com/*",
+        "https://kimi.moonshot.cn/*",
+        "https://www.doubao.com/*",
+        "https://doubao.com/*",
+        "https://yuanbao.tencent.com/*",
+        "https://chat.qwen.ai/*",
+        "https://www.qianwen.com/*",
+        "https://qianwen.com/*",
+        "https://qianwen.aliyun.com/*",
+        "https://tongyi.aliyun.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "icons": {},
+  "web_accessible_resources": []
+}
