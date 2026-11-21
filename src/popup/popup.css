@@ -16,6 +16,19 @@ body {
   background: #fff;
 }
 
+.head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
 .head h1 {
   margin: 0 0 4px;
   font-size: 15px;

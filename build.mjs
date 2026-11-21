@@ -45,6 +45,7 @@ const jobs = [
 async function copyStatic() {
   await mkdir(path.join(out, "export"), { recursive: true });
   await mkdir(path.join(out, "popup"), { recursive: true });
+  await mkdir(path.join(out, "icons"), { recursive: true });
 
   for (const [from, to] of [
     ["src/manifest.json", "dist/manifest.json"],
@@ -52,6 +53,10 @@ async function copyStatic() {
     ["src/export/styles.css", "dist/export/styles.css"],
     ["src/popup/popup.html", "dist/popup/popup.html"],
     ["src/popup/popup.css", "dist/popup/popup.css"],
+    ["src/icons/icon16.png", "dist/icons/icon16.png"],
+    ["src/icons/icon32.png", "dist/icons/icon32.png"],
+    ["src/icons/icon48.png", "dist/icons/icon48.png"],
+    ["src/icons/icon128.png", "dist/icons/icon128.png"],
   ]) {
     const source = path.join(root, from);
     if (existsSync(source)) await cp(source, path.join(root, to));
