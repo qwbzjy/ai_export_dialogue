@@ -40,8 +40,10 @@ npm run build        # 产物在 dist/
 ## 上架素材
 
 - 扩展图标：`src/icons/icon16.png`、`icon32.png`、`icon48.png`、`icon128.png`（构建时拷到 `dist/icons/`）。
-- Chrome Web Store 商品页宣传图：`store/promo-440x280.png`。
+- 商店截图（1280×800）：`store/screenshot-1-export.png`、`screenshot-2-popup.png`，由 `npm run shots` 从真实构建产物生成。
+- 小宣传图（440×280）：`store/promo-440x280.png`。
 - 隐私政策：`PRIVACY.md`，需发布到公网后填进商店后台。
+- 逐字段的提交清单（描述文案、权限理由、数据使用声明）：`store/listing.md`。
 - 上传包：`npm run build && cd dist && zip -r ../ai-chat-exporter-v0.1.0.zip .`
 
 ## 隐私
