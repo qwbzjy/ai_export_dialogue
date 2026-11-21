@@ -37,6 +37,13 @@ npm run build        # 产物在 dist/
 
 导出的是**当前会话**。生成中的回答会拒绝导出并提示稍后重试。
 
+## 上架素材
+
+- 扩展图标：`src/icons/icon16.png`、`icon32.png`、`icon48.png`、`icon128.png`（构建时拷到 `dist/icons/`）。
+- Chrome Web Store 商品页宣传图：`store/promo-440x280.png`。
+- 隐私政策：`PRIVACY.md`，需发布到公网后填进商店后台。
+- 上传包：`npm run build && cd dist && zip -r ../ai-chat-exporter-v0.1.0.zip .`
+
 ## 隐私
 
 - 所有内容只留在本机。扩展不上传任何数据，没有远程服务端。
